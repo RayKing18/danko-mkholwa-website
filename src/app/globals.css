@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+/* =====================================================================
+   Danko Mkholwa brand theme
+   Tailwind v4 reads these tokens and generates utilities such as
+   bg-gold, text-sun, border-brand-red, font-display, font-script …
+   ===================================================================== */
+@theme {
+  --color-ink: #0b0b0b;        /* page background (black) */
+  --color-coal: #141414;       /* cards */
+  --color-smoke: #1d1d1d;      /* raised surfaces */
+  --color-ash: #2a2a2a;        /* borders */
+  --color-gold: #f3b400;       /* bright gold */
+  --color-gold-deep: #c58f00;  /* darker gold for gradients */
+  --color-sun: #ffd23f;        /* warm yellow */
+  --color-cream: #fff6dc;      /* soft off-white text */
+  --color-brand-red: #e4432f;  /* logo triangle red */
+  --color-brand-teal: #1ea48f; /* logo triangle teal */
+
+  --font-display: "Bebas Neue", Impact, "Arial Narrow", sans-serif;
+  --font-script: "Kaushan Script", "Brush Script MT", cursive;
+  --font-body: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-gold: 0 16px 40px -16px rgba(243, 180, 0, 0.55);
+  --shadow-card: 0 20px 50px -25px rgba(0, 0, 0, 0.8);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ink);
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Gold gradient text used for big headings */
+.text-gold-gradient {
+  background: linear-gradient(180deg, #ffd23f 0%, #f3b400 55%, #c58f00 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Soft gold glow backdrop (hero + promo) */
+.bg-glow {
+  background:
+    radial-gradient(60% 50% at 80% 10%, rgba(243, 180, 0, 0.22), transparent 70%),
+    radial-gradient(40% 40% at 10% 90%, rgba(243, 180, 0, 0.1), transparent 70%),
+    var(--color-ink);
+}
+
+/* Subtle gold "tile" lines like the poster background */
+.bg-tiles {
+  background-image:
+    linear-gradient(rgba(243, 180, 0, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(243, 180, 0, 0.06) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Brush-style highlight behind words (like "ONLY R80" on the poster) */
+.brush {
+  display: inline-block;
+  padding: 0.05em 0.35em;
+  background: var(--color-sun);
+  color: var(--color-ink);
+  transform: rotate(-2deg);
+  border-radius: 0.2em;
+}
+
+/* Standard card surface */
+.card {
+  background-color: var(--color-coal);
+  border: 1px solid var(--color-ash);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-card);
+}
+
+/* Form controls (dark theme) */
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-ash);
+  background-color: var(--color-smoke);
+  padding: 0.75rem 1rem;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 3px rgba(243, 180, 0, 0.2);
+}
+.input::placeholder {
+  color: #7a7a7a;
+}
+.label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+
+/* Hide scrollbars on horizontal chip rows */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+@keyframes pulse-gold {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.animate-pulse-gold {
+  animation: pulse-gold 1.6s ease-in-out infinite;
+}

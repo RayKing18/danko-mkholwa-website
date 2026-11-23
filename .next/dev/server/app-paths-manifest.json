@@ -1,0 +1,7 @@
+{
+  "/(site)/page": "app/(site)/page.js",
+  "/admin/(dashboard)/products/page": "app/admin/(dashboard)/products/page.js",
+  "/api/icon/[size]/route": "app/api/icon/[size]/route.js",
+  "/api/media/[id]/route": "app/api/media/[id]/route.js",
+  "/manifest.webmanifest/route": "app/manifest.webmanifest/route.js"
+}
